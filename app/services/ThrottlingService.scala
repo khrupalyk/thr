@@ -18,7 +18,7 @@ class ThrottlingService @Inject()(
   slaCache: SlaCacheLike,
   implicit val ex: ExecutionContext) extends ThrottlingServiceLike {
 
-  val graceRps: Int = 1
+  val graceRps: Int = 10
 
   private val producer = scheduler.register("activemq:CHANGE_SLA", {
     case (user: String, newRps: Int) =>

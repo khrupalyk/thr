@@ -16,7 +16,6 @@ class SessionAwareRequest[A](token: Option[String], request: Request[A]) extends
 class SessionAwareAction @Inject()(
   thr: ThrottlingServiceLike,
   rpsService: RpsServiceLike,
-  config: Config,
   implicit val ex: ExecutionContext)
   extends ActionBuilder[SessionAwareRequest]
     with Controller {
